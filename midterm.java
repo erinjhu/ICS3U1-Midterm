@@ -19,6 +19,13 @@ public class midterm{
 		int intGuess;
 		int intRand;
 		int intCount;
+		// SCENE 3 VARIABLES
+		String strTired;
+		int intLength2;
+		int intCount3;
+		double dblSwim;
+		dblSwim = 0;
+		double dblSwim2;
 		// SCENE 8 VARIABLES
 		String strName;
 		String strLetter;
@@ -28,7 +35,7 @@ public class midterm{
 		intCheck = 0;
 		// SCENE 10 VARIABLES
 		int intCookies;
-		double dblSwim;
+		// SCENE 4 VARIABLES
 		double dblHyp;
 		char charFood;
 		// SCENE 1 - CHOICE
@@ -76,7 +83,7 @@ public class midterm{
 						// SCENE 9
 						con.clear();
 						scene9(con);
-						con.println("TEMP - not all vowels");
+						// con.println("TEMP - not all vowels");
 					}else{
 						// SCENE 10 - CHOICE
 						con.clear();
@@ -101,7 +108,47 @@ public class midterm{
 			}
 		}else if(strChoice.equalsIgnoreCase("keep swimming")){
 			con.clear();
+			// SCENE 3 - CHOICE
 			scene3(con);
+			con.println("How tired are you right now?");
+			strTired = con.readLine();
+			intLength2 = strTired.length(); // not included on flowchart, but at the same time it's not a choice
+			for(intCount3 = intLength2; intCount3 > 0; intCount3--){
+				con.println("Enter any double number to keep swimming: ");
+				dblSwim2 = con.readDouble();
+				dblSwim = dblSwim + dblSwim2;
+				con.println("TEMP"+dblSwim);
+			}
+			if(dblSwim < 100){
+				con.clear();
+				scene7(con);
+			}else{   // put else if instead??
+				con.clear();
+				// SCENE 4 - CHOICE
+				scene4(con);
+				con.println("Enter the hypotenuse: ");
+				dblHyp = con.readDouble();
+				if(dblHyp == 10){
+					// con.println("test");
+					con.clear();
+					// SCENE 5 - CHOICE
+					scene5(con);
+					// entered food choice
+					charFood = con.readChar();
+					con.println(charFood);
+					if(charFood > 15){
+						con.clear();
+						// SCENE 12
+						scene12(con);
+					}else if(charFood <= 15){
+						con.clear();
+						// SCENE 13
+						scene13(con);
+					}
+				}else{
+					// con.println("test wrong");
+				}
+			}
 		}
 	}
 	// SCENE 1
@@ -120,14 +167,21 @@ public class midterm{
 	// SCENE 3
 	public static void scene3(Console con){
 		con.println("TEMP - Scene 3");
+		con.println("You are getting very tired. Can you swim out?");
 	}
 	// SCENE 4
 	public static void scene4(Console con){
 		con.println("TEMP - Scene 4");
+		con.println("Your swim to the shore has made you hungry.");
+		con.println("A suspicious, carnivorous cube sits on a fridge.");
+		con.println("TEMP: image layer: the cube says that you can open the fridge if you find the hyp of triangle 6 and 8");
 	}
 	// SCENE 5
 	public static void scene5(Console con){
 		con.println("TEMP - Scene 5");
+		con.println("Since you opened the fridge, you stuff yourself with food.");
+		con.println("TEMP - image layer - the cube asks you how the food was. enter the first letter");
+		con.println("TEMP - enter \"g\" for \"good\"");
 	}
 	// SCENE 6
 	public static void scene6(Console con){
@@ -153,6 +207,9 @@ public class midterm{
 	// SCENE 9
 	public static void scene9(Console con){
 		con.println("TEMP - Scene 9");
+		con.println("You did not pay attention to your surroundings.");
+		con.println("The cube is mad. It eats you.");
+		con.println("Unfortunately, you will never see your home again. Game over");
 	}
 	// SCENE 10
 	public static void scene10(Console con){
@@ -165,14 +222,18 @@ public class midterm{
 	// SCENE 11
 	public static void scene11(Console con){
 		con.println("TEMP - Scene 11");
+		con.println("The cube decides it likes you. You survive.");
+		con.println("The cube transports you through a portal back to your home.");
 	}
 	// SCENE 12
 	public static void scene12(Console con){
 		con.println("TEMP - Scene 12");
+		con.println("The cube is happy. It lets you live, then transports you back home.");
 	}
 	// SCENE 13
 	public static void scene13(Console con){
-		con.println("TEMP - Scene 13fg m, njp97");
+		con.println("TEMP - Scene 13");
+		con.println("You offended the cube. It eats you. Game over.");
 	}
 
 	
