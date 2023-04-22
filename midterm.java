@@ -43,11 +43,9 @@ public class midterm{
 		scene1(con);
 		con.println("Do you \"give up\" or \"keep swimming\"?");
 		strChoice = con.readLine();
-		con.clear();
 		if(strChoice.equalsIgnoreCase("give up")){
-			con.clear();
-			con.repaint();
 			// SCENE 2 - CHOICE
+			con.clear();
 			scene2(con);
 			con.println("You will enter a number between 1 and 3 inclusive to see if you can open it.");
 			con.println("You get 10 attempts.");
@@ -156,26 +154,40 @@ public class midterm{
 	}
 	// SCENE 1
 	public static void scene1(Console con){
-		BufferedImage imgScene1Part1 = con.loadImage("Scene1-1.jpeg");
+		// Image variables
+		BufferedImage imgScene1Background = con.loadImage("Scene1-1.jpeg");
 		BufferedImage imgScene1Part2 = con.loadImage("Scene1-2.jpeg");
+		BufferedImage imgScene1Character = con.loadImage("Scene1-3.jpeg");
+		// Loop variables
 		int intStart;
 		intStart = 10;
+		// Animation variables
+		int intCharacterY;
+		intCharacterY = -100;
+		// Text colour
 		con.setTextColor(Color.WHITE);
+		// Text
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
-		con.sleep(1000);
 		con.println("It is very sticky and dense.");
-		// con.println("Enter s to start");
+		// Background
+		con.drawImage(imgScene1Background,0,0);
+		con.println("test");
+		// Animation loop
 		while(intStart > 0){
-			con.drawImage(imgScene1Part1,0,0);
+			// Character
+			con.drawImage(imgScene1Character,0,intCharacterY);
 			con.repaint();
 			con.sleep(100);
-			con.drawImage(imgScene1Part2,0,0);
+			// If statements to move character
+			if(intCharacterY == -100){
+				intCharacterY = intCharacterY + 50;
+			}else if(intCharacterY == -50){
+				intCharacterY = intCharacterY - 50;
+			}
+			intStart = intStart - 1;
 			con.repaint();
-			con.sleep(100);
-			intStart = intStart - 1;// not efficient, but follows flowchart
 		}
 		con.repaint();
-		//con.drawImage(imgScene1, 450, 200);
 	}
 	// SCENE 2
 	public static void scene2(Console con){
