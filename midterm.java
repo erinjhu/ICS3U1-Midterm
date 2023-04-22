@@ -15,6 +15,7 @@ public class midterm{
 		con.println("TEMP - Scene 0");
 		// SCENE 1 VARIABLES
 		String strChoice; 
+		strChoice = "";
 		// SCENE 2 VARIABLES
 		int intGuess;
 		int intRand;
@@ -42,8 +43,10 @@ public class midterm{
 		scene1(con);
 		con.println("Do you \"give up\" or \"keep swimming\"?");
 		strChoice = con.readLine();
+		con.clear();
 		if(strChoice.equalsIgnoreCase("give up")){
 			con.clear();
+			con.repaint();
 			// SCENE 2 - CHOICE
 			scene2(con);
 			con.println("You will enter a number between 1 and 3 inclusive to see if you can open it.");
@@ -136,11 +139,11 @@ public class midterm{
 					// entered food choice
 					charFood = con.readChar();
 					con.println(charFood);
-					if(charFood > 15){
+					if(charFood > 'g'){
 						con.clear();
 						// SCENE 12
 						scene12(con);
-					}else if(charFood <= 15){
+					}else if(charFood <= 'g'){
 						con.clear();
 						// SCENE 13
 						scene13(con);
@@ -153,11 +156,26 @@ public class midterm{
 	}
 	// SCENE 1
 	public static void scene1(Console con){
-		// BufferedImage imgScene1 = con.loadImage("Scene1.jpeg");
-		// con.drawImage(imgScene1, 0, 0);
-		con.println("TEMP - Scene 1");
+		BufferedImage imgScene1Part1 = con.loadImage("Scene1-1.jpeg");
+		BufferedImage imgScene1Part2 = con.loadImage("Scene1-2.jpeg");
+		int intStart;
+		intStart = 10;
+		con.setTextColor(Color.WHITE);
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
+		con.sleep(1000);
 		con.println("It is very sticky and dense.");
+		// con.println("Enter s to start");
+		while(intStart > 0){
+			con.drawImage(imgScene1Part1,0,0);
+			con.repaint();
+			con.sleep(100);
+			con.drawImage(imgScene1Part2,0,0);
+			con.repaint();
+			con.sleep(100);
+			intStart = intStart - 1;// not efficient, but follows flowchart
+		}
+		con.repaint();
+		//con.drawImage(imgScene1, 450, 200);
 	}
 	// SCENE 2
 	public static void scene2(Console con){
