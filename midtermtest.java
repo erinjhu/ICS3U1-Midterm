@@ -14,7 +14,7 @@ public class midtermtest{
 		BufferedImage imgScene1Character = con.loadImage("Scene1-3.jpeg");
 		// Loop variables
 		int intStart;
-		intStart = 50;
+		intStart = 20;
 		// Animation variables
 		int intCharacterY;
 		intCharacterY = -100;
@@ -24,7 +24,7 @@ public class midtermtest{
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
 		con.println("It is very sticky and dense.");
 		// Background
-		con.drawImage(imgScene1Background,0,0);
+		//con.drawImage(imgScene1Background,0,0);
 		con.repaint();
 		con.println("test");
 		// Animation loop
