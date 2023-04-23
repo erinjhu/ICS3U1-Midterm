@@ -156,12 +156,28 @@ public class midtermnoanimation{
 	public static void scene1(Console con){
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
 		con.println("It is very sticky and dense.");
+		BufferedImage imgScene1 = con.loadImage("scene1.jpg");
+		con.drawImage(imgScene1, 0, 0);
+		con.println("It is late at night and Nick is studying for his functions test");
+		con.repaint();
 		
 	}
 	// SCENE 2
 	public static void scene2(Console con){
-		con.println("TEMP - Scene 2");
-		con.println("You sink, then find a button with a sliding door.");
+		BufferedImage imgScene2 = con.loadImage("scene2.jpg");
+		con.println("Nick does not take care of himself for hours, smells, and dies");
+		int intCount;
+		int intCount2;
+		for(intCount2 = 0; intCount2 < 3; intCount2++){
+			for(intCount = 400; intCount > 0; intCount = intCount - 8){
+				con.drawImage(imgScene2, 0, 0);
+				con.setDrawColor(Color.RED);
+				con.drawString("stink nasty", 550, intCount);
+				con.repaint();
+				// 30 fps = 1000ms/30 = 33 ms about
+				con.sleep(33);
+			}
+		}	
 	}
 	// SCENE 3
 	public static void scene3(Console con){

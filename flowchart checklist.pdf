@@ -1,0 +1,17 @@
+import arc.*;
+
+public class scenetester{
+	public static void main(String[] args){
+		Console con = new Console(1280,720);
+	}
+	public static void scene8(Console con){
+		// Background
+		BufferedImage imgScene8Background = con.loadImage("Scene8-1.jpg");
+		con.drawImage(imgScene8Background, 0, 0);
+		con.setTextColor(Color.BLACK);
+		con.println("TEMP - Scene 8");
+		con.println("      You open the door and quickly go in. A giant cube asks you,");
+		con.println("      \"whAt Is yOUr nAmE?\" The cube is very picky. It then says,");
+		con.println("      \"lIstEn cArEfUlly. bE AwArE Of yOUr sUrrOUndIngs.");
+	}
+}

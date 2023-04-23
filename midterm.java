@@ -5,6 +5,7 @@
 import arc.*;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
+import java.awt.Font; 
 
 public class midterm{
 	public static void main(String[] args){
@@ -58,7 +59,7 @@ public class midterm{
 					con.clear();
 					// SCENE 8 - CHOICE
 					scene8(con);
-					con.println("Enter your name carefully: ");
+					con.println("    Enter your name carefully: ");
 					strName = con.readLine();
 					intLength = strName.length();
 					for(intCount2 = intLength; intCount2 >= 1; intCount2--){
@@ -169,20 +170,23 @@ public class midterm{
 		// Text
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
 		con.println("It is very sticky and dense.");
+		con.println("TEMP - MAKE ANIMATION SMOOTHER AND CHANGE BACKGROUND");
 		// Background
 		con.drawImage(imgScene1Background,0,0);
 		con.println("test");
 		// Animation loop
 		while(intStart > 0){
+			// Background
+			con.drawImage(imgScene1Background,0,0);
 			// Character
 			con.drawImage(imgScene1Character,0,intCharacterY);
 			con.repaint();
 			con.sleep(100);
 			// If statements to move character
-			if(intCharacterY == -100){
-				intCharacterY = intCharacterY + 50;
-			}else if(intCharacterY == -50){
-				intCharacterY = intCharacterY - 50;
+			if(intCharacterY <= -100){
+				intCharacterY = intCharacterY + 3;
+			}else if(intCharacterY <= -50){
+				intCharacterY = intCharacterY - 3;
 			}
 			intStart = intStart - 1;
 			con.repaint();
@@ -191,9 +195,47 @@ public class midterm{
 	}
 	// SCENE 2
 	public static void scene2(Console con){
+		con.setTextColor(Color.WHITE);
+		BufferedImage imgScene2Character = con.loadImage("Scene2-1.jpg");
+		BufferedImage imgScene2Background = con.loadImage("Scene2-2.jpeg");
+		// Text
 		con.println("TEMP - Scene 2");
 		con.println("You sink, then find a button with a sliding door.");
-	}
+		con.println("CHANGE FORMATTING TO ALIGN TEXT AND FIX CONTRAST");
+		// Background
+		con.drawImage(imgScene2Background, 0, 0);
+		// Animation variables
+		int intCount2;
+		int intCount3;
+		int intBubbleY;
+		intBubbleY = 0;
+		int intBubbleY2;
+		intBubbleY2 = -80;
+		int intBubbleY3;
+		intBubbleY3 = -50;
+		// Animation: person sinking
+		for(intCount3 = 0; intCount3 < 300; intCount3 = intCount3 + 8){
+			// Background
+			con.drawImage(imgScene2Background, 0, 0);
+			// Character
+			con.drawImage(imgScene2Character, 150, intCount3);
+			// Bubbles and custom RGB colour
+			con.setDrawColor(new Color(247, 175, 120));
+			con.fillOval(700, intBubbleY, 25, 25);
+			con.setDrawColor(new Color(237, 170, 130));
+			con.fillOval(750, intBubbleY2, 35, 35);
+			con.setDrawColor(new Color(227, 180, 136));
+			con.fillOval(800, intBubbleY3, 28, 28);
+			// Repaint
+			con.repaint();
+			// 30 fps = 1000ms/30 = 33 ms about
+			con.sleep(33);
+			intBubbleY = intBubbleY + 8;
+			intBubbleY2 = intBubbleY2 + 8;
+			intBubbleY3 = intBubbleY3 + 8;
+		}
+		// Animation:
+	}	
 	// SCENE 3
 	public static void scene3(Console con){
 		con.println("TEMP - Scene 3");
@@ -228,11 +270,18 @@ public class midterm{
 	}
 	// SCENE 8
 	public static void scene8(Console con){
+		// Background
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
+		con.setDrawFont(fntJosefin);
+		BufferedImage imgScene8Background = con.loadImage("Scene8-1.jpg");
+		con.drawImage(imgScene8Background, 0, 0);
+		con.setTextColor(Color.BLACK);
 		con.println("TEMP - Scene 8");
-		con.println("You open the door and quickly go in.");
-		con.println("A giant cube asks you what your name is.");
-		con.println("The cube is very picky. It tells you to be aware of your surroundings.");
-		con.println("TEMP - enter only vowels");
+		con.println("FONT NOT CHANGING FOR SOME REASON..");
+		con.println("    You open the door and quickly go in. A giant cube asks");
+		con.println("    you, \"whAt Is yOUr nAmE?\" The cube is very picky.");
+		con.println("    It then says, \"lIstEn cArEfUlly. bE AwArE Of ");
+		con.println("    yOUr sUrrOUndIngs.");
 	}
 	// SCENE 9
 	public static void scene9(Console con){
@@ -243,11 +292,17 @@ public class midterm{
 	}
 	// SCENE 10
 	public static void scene10(Console con){
-		con.println("TEMP - Scene 10");
-		con.println("Before you go, the cube wants to give you a treat.");
-		con.println("It conjures 10 cookies.");
-		con.println("Carefully choose a number.");
-		con.println("TEMP - visual clue in the background that says the cube only likes integers");
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
+		con.setDrawFont(fntJosefin);
+		BufferedImage imgScene10Background = con.loadImage("Scene10-1.jpg");
+		con.drawImage(imgScene10Background, 0, 0);
+		con.setTextColor(Color.BLACK);
+		con.println("**TEMP - Scene 8");
+		con.println("**FONT NOT CHANGING FOR SOME REASON..");
+		con.println("    Before you go, the cube wants to give you a treat.");
+		con.println("    It conjures 10 cookies. The cube asks, \"How many ");
+		con.println("    do you want?\" Choose carefully because the cube has");
+		con.println("    a short temper.");
 	}
 	// SCENE 11
 	public static void scene11(Console con){
