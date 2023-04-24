@@ -2,6 +2,15 @@
 // Programmer Name: Erin Hu
 // Version Number: ??
 
+
+// to do
+/* Fix graphics for scene 1, 2
+ * Animation for scene 1
+ * Scene 2 - add white graphics box for guesses
+ * Delete extra set fonts
+ * good job, keep going, etc for swimming scene
+ * */
+
 import arc.*;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
@@ -16,9 +25,11 @@ public class midterm{
 		con.println("TEMP - Scene 0");
 		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 25);  // (filename, fontsize)
 		con.setTextFont(fntJosefin);
-		// SCENE 1 VARIABLES
+		// SCENE 1 VARIABLES - MAIN
 		String strChoice; 
 		strChoice = "";
+		// SCENE 1 VARIABLES - SCENE METHOD
+		int intCount4;
 		// SCENE 2 VARIABLES
 		int intGuess;
 		int intRand;
@@ -122,6 +133,15 @@ public class midterm{
 				dblSwim2 = con.readDouble();
 				dblSwim = dblSwim + dblSwim2;
 				con.println("TEMP"+dblSwim);
+				if(dblSwim < 10){
+					con.println("You're sinking!");
+				}else if(dblSwim >= 10 && dblSwim < 50){
+					con.println("Keep going! Almost there!");
+				}else if(dblSwim >= 50 && dblSwim < 99){
+					con.println("So close!");
+				}else{
+					intCount3 = 0;
+				}
 			}
 			if(dblSwim < 100){
 				con.clear();
@@ -158,27 +178,24 @@ public class midterm{
 	// SCENE 1
 	public static void scene1(Console con){
 		// Image variables
-		BufferedImage imgScene1Background = con.loadImage("Scene1-1.jpeg");
-		BufferedImage imgScene1Part2 = con.loadImage("Scene1-2.jpeg");
+		BufferedImage imgScene1Background = con.loadImage("Scene1-1.jpg");
 		BufferedImage imgScene1Character = con.loadImage("Scene1-3.jpeg");
 		// Loop variables
 		int intStart;
 		intStart = 10;
 		// Animation variables
 		int intCharacterY;
-		intCharacterY = -100;
+		intCharacterY = 25;
 		// Text 
-		con.setTextColor(Color.WHITE);
-		
+		con.setTextColor(Color.BLACK);
 		// Text
+		con.println(" ");
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
 		con.println("It is very sticky and dense.");
-		con.println("TEMP - MAKE ANIMATION SMOOTHER AND CHANGE BACKGROUND");
 		// Background
 		con.drawImage(imgScene1Background,0,0);
-		con.println("test");
 		// Animation loop
-		while(intStart > 0){
+		for(intStart = 0; intStart <= 10; intStart++){
 			// Background
 			con.drawImage(imgScene1Background,0,0);
 			// Character
@@ -186,13 +203,21 @@ public class midterm{
 			con.repaint();
 			con.sleep(100);
 			// If statements to move character
-			if(intCharacterY <= -100){
-				intCharacterY = intCharacterY + 3;
-			}else if(intCharacterY <= -50){
-				intCharacterY = intCharacterY - 3;
+			if(intCharacterY == 25){
+				while(intCharacterY < 60){
+					con.drawImage(imgScene1Background,0,0);
+					con.drawImage(imgScene1Character,0,intCharacterY);
+					con.sleep(1);
+					intCharacterY = intCharacterY + 2;
+				}
+			}else{
+				while(intCharacterY > 25){
+					con.drawImage(imgScene1Background,0,0);
+					con.drawImage(imgScene1Character,0,intCharacterY);
+					con.sleep(1);
+					intCharacterY = intCharacterY - 2;
+				}
 			}
-			intStart = intStart - 1;
-			con.repaint();
 		}
 		con.repaint();
 	}
@@ -241,6 +266,10 @@ public class midterm{
 	}	
 	// SCENE 3
 	public static void scene3(Console con){
+		BufferedImage imgScene3Background = con.loadImage("Scene3-1.jpg");
+		con.drawImage(imgScene3Background,0,0);
+		BufferedImage imgScene3Character = con.loadImage("Scene3-2.jpg");
+		con.drawImage(imgScene3Character,0,0);
 		con.println("TEMP - Scene 3");
 		con.println("You are getting very tired. Can you swim out?");
 	}
@@ -264,12 +293,17 @@ public class midterm{
 	}
 	// SCENE 7
 	public static void scene7(Console con){
+		BufferedImage imgScene7Background = con.loadImage("Scene7-1.jpg");
+		con.drawImage(imgScene7Background, 0, 0);
+		con.setTextColor(Color.BLACK);
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
+		con.setTextFont(fntJosefin);
 		con.println("TEMP - Scene 7");
+		con.println(" ");
 		con.println("All this swimming has tired you out.");
-		con.println("You run out of air and energy.");
-		con.println("You feel your consciousness slowly slipping away, as you fight to survive.");
-		con.println("A fish eats you.");
-		con.println("You die. Game over.");
+		con.println("You run out of air and energy. Your consciousness slowly");
+		con.println("slips away as you fight to survive. A fish eats you, and");
+		con.println("you die. Game over.");
 	}
 	// SCENE 8
 	public static void scene8(Console con){
@@ -280,12 +314,12 @@ public class midterm{
 		con.drawImage(imgScene8Background, 0, 0);
 		con.setTextColor(Color.BLACK);
 		con.println("TEMP - Scene 8");
-		con.println("FONT NOT CHANGING FOR SOME REASON..");
+		con.println(" ");
 		con.println("    You open the door and quickly go in. A giant cube asks");
 		con.println("    you, \"whAt Is yOUr nAmE?\" The cube is very picky.");
 		con.println("    It then says, \"lIstEn cArEfUlly. bE AwArE Of ");
 		con.println("    yOUr sUrrOUndIngs.");
-		con.println("");
+		con.println(" ");
 	}
 	// SCENE 9
 	public static void scene9(Console con){
@@ -293,9 +327,10 @@ public class midterm{
 		BufferedImage imgScene8Background = con.loadImage("Scene9.jpg");
 		con.drawImage(imgScene8Background, 0, 0);
 		con.println("");
-		con.println("You did not pay attention to your surroundings.");
-		con.println("The cube is mad. It eats you.");
-		con.println("Unfortunately, you will never see your home again. Game over");
+		con.println("    You did not pay attention to your surroundings.");
+		con.println("    The cube is mad. It eats you.");
+		con.println("    Unfortunately, you will never see your.");
+		con.println("    again. Game over");
 	}
 	// SCENE 10
 	public static void scene10(Console con){
@@ -310,6 +345,7 @@ public class midterm{
 		con.println("      It conjures 10 cookies. The cube asks, \"How many ");
 		con.println("      do you want?\" Choose carefully because the cube has");
 		con.println("      has a short temper.");
+		con.println(" ");
 	}
 	// SCENE 11
 	public static void scene11(Console con){
@@ -328,12 +364,13 @@ public class midterm{
 	// SCENE 12
 	public static void scene12(Console con){
 		con.println("TEMP - Scene 12");
-		con.println("The cube is happy. It lets you live, then transports you back home.");
+		con.println("    The cube is happy. It lets you live, then transports you back home.");
 	}
 	// SCENE 13
 	public static void scene13(Console con){
 		con.println("TEMP - Scene 13");
-		con.println("You offended the cube. It eats you. Game over.");
+		con.println("    You offended the cube. It eats you. ");
+		con.println("    Game over.");
 	}
 
 	
