@@ -3,15 +3,21 @@
 import arc.*;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
+import java.awt.Font; 
+
 
 public class NickAdventure{
 	public static void main(String[] args){
 		Console con = new Console("Nick's excellent adventure", 1280, 720);
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
+		con.setDrawFont(fntJosefin);
 		String strChoice;
 		int intX;
 		con.setTextColor(Color.BLACK);
 		//con.println("TEMP - Scene 1 - Nick is studying for a functions test");
 		scene1(con);
+				con.setDrawFont(fntJosefin);
+
 		con.println("Does Nick \"play\" games or does he \"study\" more?");
 		strChoice = con.readLine();
 		if(strChoice.equals("play")){

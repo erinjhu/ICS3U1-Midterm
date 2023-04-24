@@ -14,6 +14,8 @@ public class midterm{
 		con.setBackgroundColor(Color.WHITE);
 		con.setTextColor(Color.BLACK); // could set to custom rgb colour
 		con.println("TEMP - Scene 0");
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 25);  // (filename, fontsize)
+		con.setTextFont(fntJosefin);
 		// SCENE 1 VARIABLES
 		String strChoice; 
 		strChoice = "";
@@ -165,8 +167,9 @@ public class midterm{
 		// Animation variables
 		int intCharacterY;
 		intCharacterY = -100;
-		// Text colour
+		// Text 
 		con.setTextColor(Color.WHITE);
+		
 		// Text
 		con.println("You woke up to find yourself drowning in an unknown liquid.");
 		con.println("It is very sticky and dense.");
@@ -271,8 +274,8 @@ public class midterm{
 	// SCENE 8
 	public static void scene8(Console con){
 		// Background
-		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
-		con.setDrawFont(fntJosefin);
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 25);  // (filename, fontsize)
+		con.setTextFont(fntJosefin);
 		BufferedImage imgScene8Background = con.loadImage("Scene8-1.jpg");
 		con.drawImage(imgScene8Background, 0, 0);
 		con.setTextColor(Color.BLACK);
@@ -282,33 +285,45 @@ public class midterm{
 		con.println("    you, \"whAt Is yOUr nAmE?\" The cube is very picky.");
 		con.println("    It then says, \"lIstEn cArEfUlly. bE AwArE Of ");
 		con.println("    yOUr sUrrOUndIngs.");
+		con.println("");
 	}
 	// SCENE 9
 	public static void scene9(Console con){
 		con.println("TEMP - Scene 9");
+		BufferedImage imgScene8Background = con.loadImage("Scene9.jpg");
+		con.drawImage(imgScene8Background, 0, 0);
+		con.println("");
 		con.println("You did not pay attention to your surroundings.");
 		con.println("The cube is mad. It eats you.");
 		con.println("Unfortunately, you will never see your home again. Game over");
 	}
 	// SCENE 10
 	public static void scene10(Console con){
-		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
-		con.setDrawFont(fntJosefin);
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 25);  // (filename, fontsize)
+		con.setTextFont(fntJosefin);
 		BufferedImage imgScene10Background = con.loadImage("Scene10-1.jpg");
 		con.drawImage(imgScene10Background, 0, 0);
 		con.setTextColor(Color.BLACK);
 		con.println("**TEMP - Scene 8");
-		con.println("**FONT NOT CHANGING FOR SOME REASON..");
-		con.println("    Before you go, the cube wants to give you a treat.");
-		con.println("    It conjures 10 cookies. The cube asks, \"How many ");
-		con.println("    do you want?\" Choose carefully because the cube has");
-		con.println("    a short temper.");
+		con.println(" ");
+		con.println("      Before you go, the cube wants to give you a treat.");
+		con.println("      It conjures 10 cookies. The cube asks, \"How many ");
+		con.println("      do you want?\" Choose carefully because the cube has");
+		con.println("      has a short temper.");
 	}
 	// SCENE 11
 	public static void scene11(Console con){
 		con.println("TEMP - Scene 11");
-		con.println("The cube decides it likes you. You survive.");
-		con.println("The cube transports you through a portal back to your home.");
+		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 30);  // (filename, fontsize)
+		con.setTextFont(fntJosefin);
+		BufferedImage imgScene10Background = con.loadImage("Scene11.jpg");
+		con.drawImage(imgScene10Background, 0, 0);
+		con.setTextColor(Color.BLACK);
+		con.println("**TEMP - Scene 11");
+		con.println(" ");
+		con.println("    The cube decides that it is pleased with you. You");
+		con.println("    survive. The cube transports you through a portal");
+		con.println("    back to your home.");
 	}
 	// SCENE 12
 	public static void scene12(Console con){
