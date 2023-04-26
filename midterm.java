@@ -175,6 +175,9 @@ public class midterm{
 						con.clear();
 						scene13(con);
 					}
+				}else{ // Else statement: player enters wrong hypotenuse
+					con.clear();
+					scene6(con);
 				}
 			}
 		}
