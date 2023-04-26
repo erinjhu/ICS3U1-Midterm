@@ -15,13 +15,18 @@ public class scenetester4{
 		int intCount4;
 		int intCount5;
 		int intCount6;
+		int intCount9;
 		int intEyebrowsY;
+		int intMouthY;
 		intEyebrowsY = 0;
+		intMouthY = -50;
 		BufferedImage imgScene4Background = con.loadImage("Scene4-1.jpg");
 		BufferedImage imgScene4Eyebrows = con.loadImage("Scene4-2.jpg");
+		BufferedImage imgScene4Mouth = con.loadImage("Scene4-3.jpg");
 		// Images
 		con.drawImage(imgScene4Background, 0, 0);
 		con.drawImage(imgScene4Eyebrows, 0, 0);
+		con.drawImage(imgScene4Mouth, 0, 0);
 		// Text
 		con.setTextColor(Color.BLACK);
 		con.println("   Your swim to the shore has made you hungry.");
@@ -34,9 +39,11 @@ public class scenetester4{
 			for(intCount4 = 0; intCount4 <= 10; intCount4++){
 				con.drawImage(imgScene4Background, 0, 0);
 				con.drawImage(imgScene4Eyebrows, 0, intEyebrowsY);
+				con.drawImage(imgScene4Mouth, 0, intMouthY);
 				con.repaint();
 				con.sleep(33);
 				intEyebrowsY = intEyebrowsY + 5;
+				// Eyebrows move back up
 				if(intEyebrowsY == 50){
 					for(intCount5 = 0; intCount5 <= 10; intCount5++){
 						con.drawImage(imgScene4Background, 0, 0);
@@ -47,8 +54,7 @@ public class scenetester4{
 					}
 				}
 			}
-		}
-		
-		}
+		}	
 	}
+}
 

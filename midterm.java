@@ -1,6 +1,6 @@
 // Story Name: Escape the Dark Dimension
 // Programmer Name: Erin Hu
-// Version Number: 9
+// Version Number: 11
 
 import arc.*;
 import java.awt.image.BufferedImage;
@@ -39,14 +39,13 @@ public class midterm{
 		// Scene 4 Variables
 		double dblHyp;
 		// Scene 5 Variables
-		char charFood;
+		char chrFood;
 		// Font Variable
 		Font fntJosefin = con.loadFont("JosefinSans-Regular.ttf", 25);  // (filename, fontsize)
 		con.setTextFont(fntJosefin);
 		// Scene 1
 		scene1(con);
 		con.println("   Do you \"give up\" or \"keep swimming\"?");
-		con.println("   Enter your choice exactly as shown.");
 		strChoice = con.readLine();
 		// If statement: choice - give up
 		if(strChoice.equalsIgnoreCase("give up")){
@@ -55,9 +54,11 @@ public class midterm{
 			scene2(con);
 			con.println("   You will enter a number between 1 and 3");
 			con.println("   inclusive to see if you can open it. ");
+			con.println(" ");
 			con.println("   You get 10 attempts.");
 			for(intCount = 1; intCount <= 10; intCount++){
 				intRand = (int)(Math.random() * 4 + 1);
+				con.println(" ");
 				con.println("   Guess "+intCount+":");
 				intGuess = con.readInt();
 				if(intGuess == intRand){
@@ -161,15 +162,15 @@ public class midterm{
 					// Scene 5
 					con.clear();
 					scene5(con);
-					charFood = con.getChar();
-					// con.println(charFood);
+					chrFood = con.getChar();
+					// con.println(chrFood);
 					// If statement: choice - char input > g
-					if(charFood > 'g'){
+					if(chrFood > 'g'){
 						// Scene 12
 						con.clear();
 						scene12(con);
 					// Else if statement: choice - char input <= g
-					}else if(charFood <= 'g'){
+					}else if(chrFood <= 'g'){
 						// Scene 13
 						con.clear();
 						scene13(con);
@@ -192,8 +193,11 @@ public class midterm{
 		con.setTextColor(Color.BLACK);
 		con.println(" ");
 		con.println(" ");
+		con.println("   An evil cube has transported you to the dark dimension and");
+		con.println("   wants to taunt you. If you survive the night, it will let");
+		con.println("   you out.");
+		con.println(" ");
 		con.println("   You woke up to find yourself drowning in an unknown liquid.");
-		con.println("   It is very sticky and dense.");
 		// Background
 		con.drawImage(imgScene1Background,0,0);
 		// Animation loops
@@ -235,6 +239,7 @@ public class midterm{
 		con.println(" ");
 		con.println("   You sink, then find a button with a sliding");
 		con.println("   door.");
+		con.println(" ");
 		// Animation: person sinking
 		for(intCount3 = 0; intCount3 < 400; intCount3 = intCount3 + 8){
 			// Background
@@ -275,16 +280,20 @@ public class midterm{
 		int intCount4;
 		int intCount5;
 		int intCount6;
+		int intCount9;
 		int intEyebrowsY;
+		int intMouthY;
 		intEyebrowsY = 0;
+		intMouthY = -50;
 		BufferedImage imgScene4Background = con.loadImage("Scene4-1.jpg");
 		BufferedImage imgScene4Eyebrows = con.loadImage("Scene4-2.jpg");
+		BufferedImage imgScene4Mouth = con.loadImage("Scene4-3.jpg");
 		// Images
 		con.drawImage(imgScene4Background, 0, 0);
 		con.drawImage(imgScene4Eyebrows, 0, 0);
+		con.drawImage(imgScene4Mouth, 0, 0);
 		// Text
 		con.setTextColor(Color.BLACK);
-		con.println(" ");
 		con.println("   Your swim to the shore has made you hungry.");
 		con.println("   A suspicious, carnivorous cube sits on a fridge.");
 		con.println("   The cube says that you can open the fridge if");
@@ -295,9 +304,11 @@ public class midterm{
 			for(intCount4 = 0; intCount4 <= 10; intCount4++){
 				con.drawImage(imgScene4Background, 0, 0);
 				con.drawImage(imgScene4Eyebrows, 0, intEyebrowsY);
+				con.drawImage(imgScene4Mouth, 0, intMouthY);
 				con.repaint();
 				con.sleep(33);
 				intEyebrowsY = intEyebrowsY + 5;
+				// Eyebrows move back up
 				if(intEyebrowsY == 50){
 					for(intCount5 = 0; intCount5 <= 10; intCount5++){
 						con.drawImage(imgScene4Background, 0, 0);
@@ -385,8 +396,7 @@ public class midterm{
 		con.println("    You open the door and quickly go in. A giant cube asks");
 		con.println("    what your name is. It tells you to enter by only using");
 		con.println("    five specific letters There are only five of these.");
-		con.println("    They have unique sounds. Some people consider \"y\"");
-		con.println("    one of these, but today, \"y\" is the other category.");
+		con.println("    They have unique sounds. They are not consonants.");
 	}
 	// SCENE 9
 	public static void scene9(Console con){
