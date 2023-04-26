@@ -1,16 +1,6 @@
 // Story Name: Escape the Dark Dimension
 // Programmer Name: Erin Hu
-// Version Number: ??
-
-
-// to do
-/* Fix graphics for scene 1, 2
- * Animation for scene 1
- * Scene 2 - add white graphics box for guesses
- * Delete extra set fonts
- * good job, keep going, etc for swimming scene
- * indicate what number to enter
- * */
+// Version Number: 9
 
 import arc.*;
 import java.awt.image.BufferedImage;
@@ -58,6 +48,7 @@ public class midterm{
 		con.println("   Do you \"give up\" or \"keep swimming\"?");
 		con.println("   Enter your choice exactly as shown.");
 		strChoice = con.readLine();
+		// If statement: choice - give up
 		if(strChoice.equalsIgnoreCase("give up")){
 			// Scene 2
 			con.clear();
@@ -96,26 +87,31 @@ public class midterm{
 						// con.println("test"+strName);
 					}
 					con.clear();
+					// If statement: choice - the player doesn't enter all vowels
 					if(strName.equals("Not all vowels")){
 						// Scene 9
 						con.clear();
 						scene9(con);
+					// Else statement: choice - the player enters all vowels
 					}else{
 						// Scene 10
 						con.clear();
 						scene10(con);
 						con.println("How many cookies do you take?");
 						intCookies = con.readInt();
+						// If statement: choice - player chooses 0 or 10 cookies
 						if(intCookies == 10 || intCookies == 0){
 							con.clear();
-							// Scene 9 (There are two possible outcomes that lead to Scene 9)
+							// Scene 9 (This is the second possible outcomes that lead to Scene 9)
 							scene9(con);
+						// Else statement: choice - player chooses 1-9 cookies
 						}else if(intCookies >= 1 && intCookies <= 9){
 							con.clear();
 							// Scene 11
 							scene11(con);
 						}
 					}
+				// Else statement: choice - the guessed integer does not match the random integer
 				}else if(intGuess != intRand && intCount == 10){
 					intCount = 11;
 					// Scene 7
@@ -123,6 +119,7 @@ public class midterm{
 					scene7(con);
 				}
 			}
+		// Else if statement: choice - player inputs "keep swimming"
 		}else if(strChoice.equalsIgnoreCase("keep swimming")){
 			con.clear();
 			// Scene 3
@@ -146,16 +143,19 @@ public class midterm{
 					intCount3 = 0;
 				}
 			}
+			// If statement: choice - dblSwim input is less than 100
 			if(dblSwim < 100){
 				// Scene 7
 				con.clear();
 				scene7(con);
+			// Else statement: choice - dblSwim input is more than 100
 			}else{   
 				con.clear();
 				// Scene 4
 				scene4(con);
 				con.println("   Enter the hypotenuse: ");
 				dblHyp = con.readDouble();
+				// If statement: choice - player enters the hypotenuse
 				if(dblHyp == 10){
 					// con.println("test");
 					// Scene 5
@@ -163,22 +163,22 @@ public class midterm{
 					scene5(con);
 					charFood = con.getChar();
 					// con.println(charFood);
+					// If statement: choice - char input > g
 					if(charFood > 'g'){
 						// Scene 12
 						con.clear();
 						scene12(con);
+					// Else if statement: choice - char input <= g
 					}else if(charFood <= 'g'){
 						// Scene 13
 						con.clear();
 						scene13(con);
 					}
-				}else{
-					// con.println("test wrong");
 				}
 			}
 		}
 	}
-	// SCENE 1
+	// SCENE 1  
 	public static void scene1(Console con){
 		// Images
 		BufferedImage imgScene1Background = con.loadImage("Scene1-1.jpg");
@@ -214,7 +214,7 @@ public class midterm{
 			}
 		}	
 	}
-	// SCENE 2
+	// SCENE 2  
 	public static void scene2(Console con){
 		// Variables
 		BufferedImage imgScene2Character = con.loadImage("Scene2-1.jpg");
